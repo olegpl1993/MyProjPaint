@@ -1,0 +1,93 @@
+@import url("nullstyle.css");
+
+.wrapper {
+    display: flex;
+    min-height: 100%;
+    min-width: 100%;
+    background-color: rgb(167, 167, 167);
+}
+
+.panel {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+    width: 150px;
+    padding-top: 10px;
+    border: 1px solid black;
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .text2 {
+        margin-top: 20px;
+    }
+    #color {
+        margin-top: 5px;
+        height: 70px;
+        width: 70px;
+    }
+    #brush5x5 {
+        height: 5px;
+        width: 5px;
+    }
+    #brush10x10 {
+        height: 10px;
+        width: 10px;
+    }
+    #brush15x15 {
+        height: 15px;
+        width: 15px;
+    }
+    #brush20x20 {
+        height: 20px;
+        width: 20px;
+    }
+    #brush25x25 {
+        height: 25px;
+        width: 25px;
+    }
+    #brushR5 {
+        height: 5px;
+        width: 5px;
+        border-radius: 50%;
+    }
+    #brushR10 {
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+    }
+    #brushR15 {
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+    }
+    #brushR20 {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+    }
+    #brushR25 {
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+    }
+    .col {
+        margin-top: 10px;
+        background-color: rgb(0, 0, 0);
+    }
+    #clear {
+        color: black;
+        padding-top: 3px;
+        font-weight: 700;
+        text-align: center;
+        border-radius: 5px;
+        border: 2px solid black;
+        margin-top: 20px;
+        height: 25px;
+        width: 130px;
+    }
+}
+
+#c1 {
+    background-color: white;
+    margin: 10px;
+}
