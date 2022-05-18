@@ -105,6 +105,48 @@
   margin-top: 10px;
 }
 
+.panel #line5 {
+  margin-top: 10px;
+  height: 5px;
+  width: 70px;
+  background-color: black;
+}
+
+.panel #line7 {
+  margin-top: 10px;
+  height: 7px;
+  width: 70px;
+  background-color: black;
+}
+
+.panel #line10 {
+  margin-top: 10px;
+  height: 10px;
+  width: 70px;
+  background-color: black;
+}
+
+.panel #line15 {
+  margin-top: 10px;
+  height: 15px;
+  width: 70px;
+  background-color: black;
+}
+
+.panel #line20 {
+  margin-top: 10px;
+  height: 20px;
+  width: 70px;
+  background-color: black;
+}
+
+.panel #line25 {
+  margin-top: 10px;
+  height: 25px;
+  width: 70px;
+  background-color: black;
+}
+
 .panel #clear {
   color: black;
   padding-top: 3px;
