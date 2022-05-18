@@ -121,6 +121,7 @@ canvas.onmousedown = function (event) {
         ctx.strokeStyle = myColor;
         ctx.lineWidth = brush;
         ctx.lineCap = "round";
+        ctx.stroke();
     }
 
     //при движении мышки с зажатым ЛКМ------------------------------
