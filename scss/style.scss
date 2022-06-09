@@ -4,113 +4,79 @@
     display: flex;
     min-height: 100%;
     min-width: 100%;
-    background-color: rgb(167, 167, 167);
+    background-color: rgb(220, 220, 220);
 }
 
 .panel {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(220, 220, 220);
     font-size: 13px;
-    width: 150px;
+    width: 115px;
     padding-top: 10px;
-    border: 1px solid black;
-    background-color: rgb(245, 245, 245);
     display: flex;
     flex-direction: column;
     align-items: center;
-    .text2 {
-        margin-top: 20px;
-    }
-    #color {
-        margin-top: 5px;
-        height: 70px;
-        width: 70px;
-    }
-    #brushR5 {
-        height: 5px;
-        width: 5px;
-        border-radius: 50%;
-    }
-    #brushR10 {
-        height: 10px;
-        width: 10px;
-        border-radius: 50%;
-    }
-    #brushR15 {
-        height: 15px;
-        width: 15px;
-        border-radius: 50%;
-    }
-    #brushR20 {
-        height: 20px;
-        width: 20px;
-        border-radius: 50%;
-    }
-    #brushR25 {
-        height: 25px;
-        width: 25px;
-        border-radius: 50%;
-    }
-    .col {
-        margin-top: 10px;
-        background-color: rgb(0, 0, 0);
-    }
-    #circle {
-        border: 5px solid black;
-        height: 25px;
-        width: 25px;
-        border-radius: 50%;
-        margin-top: 10px;
-    }
-    #line5 {
-        margin-top: 10px;
-        height: 5px;
-        width: 70px;
-        background-color: black;
-    }
-    #line7 {
-        margin-top: 10px;
-        height: 7px;
-        width: 70px;
-        background-color: black;
-    }
-    #line10 {
-        margin-top: 10px;
-        height: 10px;
-        width: 70px;
-        background-color: black;
-    }
-    #line15 {
-        margin-top: 10px;
-        height: 15px;
-        width: 70px;
-        background-color: black;
-    }
-    #line20 {
-        margin-top: 10px;
-        height: 20px;
-        width: 70px;
-        background-color: black;
-    }
-    #line25 {
-        margin-top: 10px;
-        height: 25px;
-        width: 70px;
-        background-color: black;
-    }
-    #clear {
-        color: black;
-        padding-top: 3px;
-        font-weight: 700;
-        text-align: center;
-        border-radius: 5px;
-        border: 2px solid black;
-        margin-top: 20px;
-        height: 25px;
-        width: 130px;
-    }
+}
+.text2 {
+    margin-top: 15px;
+}
+#color {
+    margin-top: 5px;
+    height: 70px;
+    width: 70px;
+}
+#input {
+    height: 30px;
+    width: 45px;
+    font-size: 20px;
+    border: 1px solid black;
+    margin: 5px;
+}
+#brushR {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+}
+#brushR {
+    margin-top: 5px;
+    background-color: rgb(0, 0, 0);
+}
+#line {
+    margin-top: 5px;
+    height: 10px;
+    width: 70px;
+    background-color: black;
+}
+#circle {
+    border: 5px solid black;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+#clear {
+    color: black;
+    padding-top: 3px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid black;
+    margin-top: 20px;
+    height: 25px;
+    width: 105px;
+    user-select: none;
+}
+#clear:active {
+    color: rgb(255, 255, 255);
+    background-color: black;
+    padding-top: 3px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid black;
+    margin-top: 20px;
+    height: 25px;
+    width: 105px;
 }
 
 #c1 {
     background-color: white;
-    margin: 10px;
 }

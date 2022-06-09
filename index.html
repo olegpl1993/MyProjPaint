@@ -13,28 +13,23 @@
 <body>
     <div class="wrapper">
         <div class="panel">
-            <div class="text1">Выбор цвета</div>
+            <div class="text1">Цвет</div>
             <input type="color" id="color">
-            <div class="text2">Выбор кисти</div>
-            <div id="brushR5" class="col"></div>
-            <div id="brushR10" class="col"></div>
-            <div id="brushR15" class="col"></div>
-            <div id="brushR20" class="col"></div>
-            <div id="brushR25" class="col"></div>
+            <div class="text2">Толщина линии</div>
+            <div>
+                <input type="number" id="input" min="1" max="99" maxlength="2" value="5">px
+            </div>
+            <div class="text2">Кисти</div>
+            <div id="brushR"></div>
+            <div class="text2">Линии</div>
+            <div id="line"></div>
             <div class="text2">Фигуры</div>
             <div id="circle"></div>
-            <div class="text2">Линии</div>
-            <div id="line5"></div>
-            <div id="line7"></div>
-            <div id="line10"></div>
-            <div id="line15"></div>
-            <div id="line20"></div>
-            <div id="line25"></div>
             <div id="clear">Очистить лист</div>
         </div>
-        <div class="workSpace">
-            <canvas id="c1" width="1750" height="900"></canvas>
-        </div>
+
+        <div class="workSpace"></div>
+
     </div>
     <script src="js/script.js"></script>
 </body>
