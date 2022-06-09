@@ -3,37 +3,20 @@
 let canvas = document.getElementById("c1");
 let ctx = canvas.getContext("2d");
 
-let pi = Math.PI; //pi
 let myColor = "black"; //цвет
 let brStyle = "round"; //тип кисти или инструмента
 let brush = 5; //размер кисти
+let firstx, firsty; //начальные координаты
+let x, y; //текущие координаты
+let radius; //радиус круга
+
 
 //выбор цвета
 document.getElementById("color").oninput = function () {
     myColor = this.value;
 }
 
-//выбор кисти, инструмента
-brush5x5.onclick = function () {
-    brush = 5;
-    brStyle = "square";
-}
-brush10x10.onclick = function () {
-    brush = 10;
-    brStyle = "square";
-}
-brush15x15.onclick = function () {
-    brush = 15;
-    brStyle = "square";
-}
-brush20x20.onclick = function () {
-    brush = 20;
-    brStyle = "square";
-}
-brush25x25.onclick = function () {
-    brush = 25;
-    brStyle = "square";
-}
+//выбор инструмента
 brushR5.onclick = function () {
     brush = 5;
     brStyle = "round";
@@ -88,13 +71,13 @@ clear.onclick = function () {
     ctx.clearRect(0, 0, 1750, 900);
 }
 
-//при нажатии ЛКМ----------------------------------------
+//при нажатии ЛКМ ----------------------------------------
 canvas.onmousedown = function (event) {
     // рисования кистью 
-    if (brStyle == "round" || brStyle == "square") {
+    if (brStyle == "round") {
         ctx.beginPath() //начало новой фигуры
-        let x = event.offsetX;
-        let y = event.offsetY;
+        x = event.offsetX;
+        y = event.offsetY;
         ctx.moveTo(x, y); //установка начальных координат
         ctx.lineTo(x, y); //установка координат для рисования
         ctx.strokeStyle = myColor;
@@ -105,17 +88,18 @@ canvas.onmousedown = function (event) {
     // рисования круга
     if (brStyle == "circle") {
         ctx.beginPath();
-        var firstx = event.offsetX;
-        var firsty = event.offsetY;
+        firstx = event.offsetX;
+        firsty = event.offsetY;
         ctx.lineWidth = brush;
         ctx.strokeStyle = myColor;
         ctx.lineCap = "round";
+
     }
     //рисование линий
     if (brStyle == "line") {
         ctx.beginPath();
-        var x = event.offsetX;
-        var y = event.offsetY;
+        x = event.offsetX;
+        y = event.offsetY;
         ctx.moveTo(x, y);
         ctx.lineTo(x, y);
         ctx.strokeStyle = myColor;
@@ -125,23 +109,17 @@ canvas.onmousedown = function (event) {
     }
 
     //при движении мышки с зажатым ЛКМ------------------------------
+    let postX, postY; //предыдущие координаты
     canvas.onmousemove = function (event) {
         //рисования кистью 
-        if (brStyle == "round" || brStyle == "square") {
-            let x = event.offsetX;
-            let y = event.offsetY;
-            ctx.moveTo(x, y);
+        if (brStyle == "round") {
+            x = event.offsetX;
+            y = event.offsetY;
+            ctx.moveTo(postX, postY);
             ctx.lineTo(x, y);
             ctx.stroke();
-            ctx.beginPath();
-        }
-        //рисования круга
-        if (brStyle == "circle") {
-            var x = event.offsetX;
-            var y = event.offsetY;
-            var radius = Math.pow(Math.pow(x - firstx, 2) + Math.pow(y - firsty, 2), 0.5);
-            ctx.arc(firstx, firsty, radius, 0, 2 * pi, false);
-            ctx.stroke();
+            postX = x;
+            postY = y;
         }
     }
 
@@ -149,9 +127,18 @@ canvas.onmousedown = function (event) {
     canvas.onmouseup = function (event) {
         //рисование линий
         if (brStyle == "line") {
-            var x = event.offsetX;
-            var y = event.offsetY;
+            x = event.offsetX;
+            y = event.offsetY;
             ctx.lineTo(x, y);
+            ctx.stroke();
+        }
+        //рисования круга
+        if (brStyle == "circle") {
+            x = event.offsetX;
+            y = event.offsetY;
+            ctx.beginPath();
+            radius = Math.pow(Math.pow(x - firstx, 2) + Math.pow(y - firsty, 2), 0.5);
+            ctx.arc(firstx, firsty, radius, 0, 2 * Math.PI, false);
             ctx.stroke();
         }
         canvas.onmousemove = null; //отмена отслеживания координат мышки

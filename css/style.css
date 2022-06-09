@@ -37,31 +37,6 @@
   width: 70px;
 }
 
-.panel #brush5x5 {
-  height: 5px;
-  width: 5px;
-}
-
-.panel #brush10x10 {
-  height: 10px;
-  width: 10px;
-}
-
-.panel #brush15x15 {
-  height: 15px;
-  width: 15px;
-}
-
-.panel #brush20x20 {
-  height: 20px;
-  width: 20px;
-}
-
-.panel #brush25x25 {
-  height: 25px;
-  width: 25px;
-}
-
 .panel #brushR5 {
   height: 5px;
   width: 5px;
