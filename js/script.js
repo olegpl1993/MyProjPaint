@@ -51,9 +51,9 @@ line.onclick = function () {
 clear.onclick = function () {
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight); //очистить лист
 }
-//------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------
 
-//функция рисования (МЫШЬ) ----------------------------------------------------------------------------------------------
+//функция рисования (МЫШЬ) -----------------------------------------------------------------------------------------------
 if (device === 0) {
     canvas.onmousedown = function clickdown(event) {
         // рисования кистью 
@@ -128,9 +128,9 @@ if (device === 0) {
         }
     }
 }
-//-------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------
 
-//функция рисования (ТАЧСКРИН) ---------------------------------------------------------------------------------------------
+//функция рисования (ТАЧСКРИН) -------------------------------------------------------------------------------------------------
 if (device === 1) { //проверка на устройство с сенсором
     let rect;
     let postX, postY; //предыдущие координаты
@@ -139,8 +139,8 @@ if (device === 1) { //проверка на устройство с сенсор
         if (brStyle == "round") {
             ctx.beginPath() //начало новой фигуры
             rect = event.target.getBoundingClientRect();
-            x = event.targetTouches[0].pageX - rect.left; //координаты нажатия
-            y = event.targetTouches[0].pageY - rect.top; //координаты нажатия
+            x = event.changedTouches[0].pageX - rect.left; //координаты нажатия
+            y = event.changedTouches[0].pageY - rect.top; //координаты нажатия
             postX = x; //установка предыдущих координат
             postY = y; //установка предыдущих координат
             ctx.moveTo(x, y); //установка начальных координат
@@ -151,14 +151,12 @@ if (device === 1) { //проверка на устройство с сенсор
             ctx.stroke(); //отрисовка фигуры
         }
 
-        /*
         //рисование линий
         if (brStyle == "line") {
-            console.log(event)
             ctx.beginPath(); //начало новой фигуры
             rect = event.target.getBoundingClientRect();
-            x = event.targetTouches[0].pageX - rect.left;
-            y = event.targetTouches[0].pageY - rect.top;
+            x = event.changedTouches[0].pageX - rect.left;
+            y = event.changedTouches[0].pageY - rect.top;
             ctx.moveTo(x, y); //установка начальных координат
             ctx.lineTo(x, y); //установка координат для рисования
             ctx.strokeStyle = myColor;
@@ -166,25 +164,25 @@ if (device === 1) { //проверка на устройство с сенсор
             ctx.lineCap = "round";
             ctx.stroke(); //отрисовка фигуры
         }
-            // рисования круга
-            if (brStyle == "circle") {
-                ctx.beginPath(); //начало новой фигуры
-                rect = event.target.getBoundingClientRect();
-                firstx = event.targetTouches[0].pageX - rect.left;
-                firsty = event.targetTouches[0].pageY - rect.top;
-                ctx.lineWidth = brush;
-                ctx.strokeStyle = myColor;
-                ctx.lineCap = "round";
-            }
-        */
 
-        //при движении с по экрану------------------------------
+        // рисования круга
+        if (brStyle == "circle") {
+            ctx.beginPath(); //начало новой фигуры
+            rect = event.target.getBoundingClientRect();
+            firstx = event.changedTouches[0].pageX - rect.left;
+            firsty = event.changedTouches[0].pageY - rect.top;
+            ctx.lineWidth = brush;
+            ctx.strokeStyle = myColor;
+            ctx.lineCap = "round";
+        }
+
+        //при движении с по экрану--------------------------------
         canvas.addEventListener("touchmove", event => {
             //рисования кистью 
             if (brStyle == "round") {
                 rect = event.target.getBoundingClientRect();
-                x = event.targetTouches[0].pageX - rect.left; //координаты нажатия
-                y = event.targetTouches[0].pageY - rect.top; //координаты нажатия
+                x = event.changedTouches[0].pageX - rect.left; //координаты нажатия
+                y = event.changedTouches[0].pageY - rect.top; //координаты нажатия
                 ctx.moveTo(postX, postY) //установка начальных координат
                 ctx.lineTo(x, y); //установка координат для рисования
                 ctx.stroke(); //отрисовка фигуры
@@ -195,28 +193,26 @@ if (device === 1) { //проверка на устройство с сенсор
 
         //при отпуске ЛКМ--------------------------------------
         canvas.addEventListener("touchend", event => {
-
-            /*
             //рисование линий
             if (brStyle == "line") {
-                console.log(event)
                 rect = event.target.getBoundingClientRect();
-                x = event.targetTouches[0].pageX - rect.left;
-                y = event.targetTouches[0].pageY - rect.top;
-                ctx.lineTo(x, y);
-                ctx.stroke();
+                x = event.changedTouches[0].pageX - rect.left;
+                y = event.changedTouches[0].pageY - rect.top;
+                ctx.lineTo(x, y); //установка координат для рисования
+                ctx.stroke(); //отрисовка фигуры
             }
+
             //рисования круга
             if (brStyle == "circle") {
                 ctx.beginPath();
                 rect = event.target.getBoundingClientRect();
-                x = event.targetTouches[0].pageX - rect.left;
-                y = event.targetTouches[0].pageY - rect.top;
+                x = event.changedTouches[0].pageX - rect.left;
+                y = event.changedTouches[0].pageY - rect.top;
                 radius = Math.pow(Math.pow(x - firstx, 2) + Math.pow(y - firsty, 2), 0.5);
                 ctx.arc(firstx, firsty, radius, 0, 2 * Math.PI, false);
                 ctx.stroke();
             }
-            */
+
             canvas.touchmove = null; //отмена отслеживания координат
         })
     })
