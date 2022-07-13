@@ -135,6 +135,7 @@ if (device === 1) { //проверка на устройство с сенсор
     let rect;
     let postX, postY; //предыдущие координаты
     canvas.addEventListener("touchstart", event => {
+        event.preventDefault(); //отменяет стандартное поведение нажатия сенсора
         // рисования кистью 
         if (brStyle == "round") {
             ctx.beginPath() //начало новой фигуры
@@ -178,6 +179,7 @@ if (device === 1) { //проверка на устройство с сенсор
 
         //при движении с по экрану--------------------------------
         canvas.addEventListener("touchmove", event => {
+            event.preventDefault(); //отменяет стандартное поведение нажатия сенсора
             //рисования кистью 
             if (brStyle == "round") {
                 rect = event.target.getBoundingClientRect();
@@ -193,6 +195,7 @@ if (device === 1) { //проверка на устройство с сенсор
 
         //при отпуске ЛКМ--------------------------------------
         canvas.addEventListener("touchend", event => {
+            event.preventDefault(); //отменяет стандартное поведение нажатия сенсора
             //рисование линий
             if (brStyle == "line") {
                 rect = event.target.getBoundingClientRect();
