@@ -1,7 +1,10 @@
 @import url("nullstyle.css");
+
+body {
+  overflow: hidden;
+}
+
 .wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   min-height: 100%;
   min-width: 100%;
@@ -13,17 +16,35 @@
   background-color: gainsboro;
   font-size: 13px;
   width: 115px;
-  padding-top: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  transition: all 1s ease;
+  left: 0px;
+  padding: 5px;
+}
+.invizPanel {
+  left: -115px;
+}
+
+.hideBtn {
+  top: 0px;
+  position: fixed;
+  height: 30px;
+  width: 30px;
+  font-size: 15px;
+  font-weight: 700;
+  left: 115px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: gainsboro;
+  transition: all 1s ease;
+  border-bottom-right-radius: 50%;
+}
+.invizBtn {
+  left: 0px;
 }
 
 .text2 {
@@ -80,9 +101,9 @@
   height: 25px;
   width: 105px;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #clear:active {
